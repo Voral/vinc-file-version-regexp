@@ -12,10 +12,37 @@
       "Vasoft\\VersionIncrement\\Extension\\": "src/"
     }
   },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.66.0",
+    "phpunit/phpunit": "^10.5",
+    "php-mock/php-mock-phpunit": "^2.10",
+    "phpstan/phpstan": "^2.1",
+    "phpstan/phpstan-phpunit": "^2.0"
+  },
+  "scripts": {
+    "vi:auto": "php ./bin/vs-version-increment",
+    "vi:debug": "php ./bin/vs-version-increment --debug",
+    "test": "php vendor/bin/phpunit --display-warnings",
+    "coverage": "php -dzend_extension=xdebug.so -dxdebug.mode=coverage vendor/bin/phpunit --coverage-text",
+    "stan": "vendor/bin/phpstan analyse src tests",
+    "fixer": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+    "check": [
+      "@fixer",
+      "@stan"
+    ]
+  },
   "authors": [
     {
       "name": "Alexander Vorobyev",
       "email": "voral.adm@gmail.com"
     }
-  ]
+  ],
+  "archive": {
+    "exclude": [
+      "/tests",
+      ".phpstan.neon.dist",
+      "phpunit.xml",
+      "/.github"
+    ]
+  }
 }
