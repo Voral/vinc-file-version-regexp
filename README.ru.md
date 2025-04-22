@@ -2,6 +2,10 @@
 
 [EN](README.md)
 
+![PHP Tests](https://github.com/Voral/vinc-file-version-regexp/actions/workflows/php.yml/badge.svg)
+[![Code Coverage](https://scrutinizer-ci.com/g/Voral/vinc-file-version-regexp/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Voral/vinc-file-version-regexp/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Voral/vinc-file-version-regexp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Voral/vinc-file-version-regexp/?branch=master)
+
 Расширение для [voral/version-increment](https://github.com/Voral/vs-version-incrementor), позволяющее обновлять строки
 версий в произвольных файлах с использованием регулярных выражений.
 

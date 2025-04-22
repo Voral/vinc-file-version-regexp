@@ -2,6 +2,10 @@
 
 [RU](README.ru.md)
 
+![PHP Tests](https://github.com/Voral/vinc-file-version-regexp/actions/workflows/php.yml/badge.svg)
+[![Code Coverage](https://scrutinizer-ci.com/g/Voral/vinc-file-version-regexp/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Voral/vinc-file-version-regexp/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Voral/vinc-file-version-regexp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Voral/vinc-file-version-regexp/?branch=master)
+
 An extension for [voral/version-increment](https://github.com/Voral/vs-version-incrementor) to update version strings in
 custom files using regular expressions.
 
