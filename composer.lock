@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Voral/vs-version-incrementor.git",
-                "reference": "c1e4c2fca35246657a5beeebb5af3cb9f9d11ffd"
+                "reference": "2e31e0ea7e5769db33a073633d029ef67882c656"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Voral/vs-version-incrementor/zipball/c1e4c2fca35246657a5beeebb5af3cb9f9d11ffd",
-                "reference": "c1e4c2fca35246657a5beeebb5af3cb9f9d11ffd",
+                "url": "https://api.github.com/repos/Voral/vs-version-incrementor/zipball/2e31e0ea7e5769db33a073633d029ef67882c656",
+                "reference": "2e31e0ea7e5769db33a073633d029ef67882c656",
                 "shasum": ""
             },
             "require": {
@@ -63,7 +63,7 @@
                 "issues": "https://github.com/Voral/vs-version-incrementor/issues",
                 "source": "https://github.com/Voral/vs-version-incrementor"
             },
-            "time": "2025-04-21T14:40:37+00:00"
+            "time": "2025-04-22T05:48:07+00:00"
         }
     ],
     "packages-dev": [
