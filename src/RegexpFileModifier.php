@@ -15,6 +15,7 @@ class RegexpFileModifier implements EventListenerInterface
     public function __construct(
         private readonly string $filePath,
         private readonly string $regexp,
+        private readonly int $errorCodeDelta = 0,
     ) {}
 
     public function handle(Event $event): void
@@ -32,10 +33,10 @@ class RegexpFileModifier implements EventListenerInterface
     private function checkFile(): void
     {
         if (!file_exists($this->filePath)) {
-            throw new FileNotFoundException($this->filePath);
+            throw new FileNotFoundException($this->filePath, $this->errorCodeDelta);
         }
         if (!is_writable($this->filePath)) {
-            throw new FileNotWritableException($this->filePath);
+            throw new FileNotWritableException($this->filePath, $this->errorCodeDelta);
         }
     }
 
@@ -53,7 +54,7 @@ class RegexpFileModifier implements EventListenerInterface
             $content,
         );
         if (null === $updatedContent || $content === $updatedContent) {
-            throw new PatternNotFoundException($this->filePath);
+            throw new PatternNotFoundException($this->filePath, $this->errorCodeDelta);
         }
 
         file_put_contents($this->filePath, $updatedContent);

@@ -13,7 +13,7 @@ include_once __DIR__ . '/MockTrait.php';
 /**
  * @internal
  *
- * @coversNothing
+ * @coversDefaultClass \Vasoft\VersionIncrement\Extension\RegexpFileModifier
  */
 final class RegexpFileModifierTest extends TestCase
 {
@@ -58,7 +58,12 @@ final class RegexpFileModifierTest extends TestCase
         self::assertSame($contentAfter, self::$mockFilePutContentsParamContent);
     }
 
-    public function testNotExists(): void
+    /**
+     * @throws Vasoft\VersionIncrement\Exceptions\ApplicationException
+     *
+     * @dataProvider provideTemplateNotFoundCases
+     */
+    public function testNotExists(int $delta): void
     {
         $contentBefore = <<<'PHP'
             <?php
@@ -73,15 +78,21 @@ final class RegexpFileModifierTest extends TestCase
         $modifier = new RegexpFileModifier(
             './tests/version.php',
             '#(\$version\s*=\s*"[^"]*)\d+\.\d+\.\d+([^"]*";)#s',
+            $delta,
         );
         $event = new Vasoft\VersionIncrement\Events\Event(EventType::AFTER_VERSION_SET, '2.0.0');
         self::expectException(Exception\FileNotFoundException::class);
         self::expectExceptionMessage('File not found: ./tests/version.php');
-        self::expectExceptionCode(5001);
+        self::expectExceptionCode(5001 + $delta);
         $modifier->handle($event);
     }
 
-    public function testNotWritable(): void
+    /**
+     * @throws Vasoft\VersionIncrement\Exceptions\ApplicationException
+     *
+     * @dataProvider provideTemplateNotFoundCases
+     */
+    public function testNotWritable(int $delta): void
     {
         $contentBefore = <<<'PHP'
             <?php
@@ -96,15 +107,21 @@ final class RegexpFileModifierTest extends TestCase
         $modifier = new RegexpFileModifier(
             './tests/version2.php',
             '#(\$version\s*=\s*"[^"]*)\d+\.\d+\.\d+([^"]*";)#s',
+            $delta,
         );
         $event = new Vasoft\VersionIncrement\Events\Event(EventType::AFTER_VERSION_SET, '2.0.0');
         self::expectException(Exception\FileNotWritableException::class);
         self::expectExceptionMessage('File not writable: ./tests/version2.php');
-        self::expectExceptionCode(5002);
+        self::expectExceptionCode(5002 + $delta);
         $modifier->handle($event);
     }
 
-    public function testTemplateNotFound(): void
+    /**
+     * @throws Vasoft\VersionIncrement\Exceptions\ApplicationException
+     *
+     * @dataProvider provideTemplateNotFoundCases
+     */
+    public function testTemplateNotFound(int $delta): void
     {
         $contentBefore = <<<'PHP'
             <?php
@@ -119,11 +136,17 @@ final class RegexpFileModifierTest extends TestCase
         $modifier = new RegexpFileModifier(
             './tests/version2.php',
             '#(\$version\s*=\s*"[^"]*)\d+\.\d+\.\d+([^"]*";)#s',
+            $delta,
         );
         $event = new Vasoft\VersionIncrement\Events\Event(EventType::AFTER_VERSION_SET, '2.0.0');
         self::expectException(Exception\PatternNotFoundException::class);
         self::expectExceptionMessage('The specified pattern was not found in the file: ./tests/version2.php');
-        self::expectExceptionCode(5003);
+        self::expectExceptionCode(5003 + $delta);
         $modifier->handle($event);
+    }
+
+    public static function provideTemplateNotFoundCases(): iterable
+    {
+        return [[0], [10]];
     }
 }

@@ -10,10 +10,10 @@ class PatternNotFoundException extends UserException
 {
     private const CODE = 3;
 
-    public function __construct(string $fileName, ?\Throwable $previous = null)
+    public function __construct(string $fileName, int $errorCodeDelta, ?\Throwable $previous = null)
     {
         parent::__construct(
-            self::CODE,
+            self::CODE + $errorCodeDelta,
             "The specified pattern was not found in the file: {$fileName}",
             $previous,
         );
