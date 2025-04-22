@@ -72,6 +72,7 @@ PHP;
         $event = new Vasoft\VersionIncrement\Events\Event(EventType::AFTER_VERSION_SET, '2.0.0');
         self::expectException(Vasoft\VersionIncrement\Extension\Exception\FileNotFoundException::class);
         self::expectExceptionMessage('File not found: ./tests/version.php');
+        self::expectExceptionCode(5001);
         $modifier->handle($event);
     }
     public function testNotWritable(): void
@@ -93,6 +94,7 @@ PHP;
         $event = new Vasoft\VersionIncrement\Events\Event(EventType::AFTER_VERSION_SET, '2.0.0');
         self::expectException(Exception\FileNotWritableException::class);
         self::expectExceptionMessage('File not writable: ./tests/version2.php');
+        self::expectExceptionCode(5002);
         $modifier->handle($event);
     }
     public function testTemplateNotFound(): void
@@ -114,6 +116,7 @@ PHP;
         $event = new Vasoft\VersionIncrement\Events\Event(EventType::AFTER_VERSION_SET, '2.0.0');
         self::expectException(Vasoft\VersionIncrement\Extension\Exception\PatternNotFoundException::class);
         self::expectExceptionMessage('The specified pattern was not found in the file: ./tests/version2.php');
+        self::expectExceptionCode(5003);
         $modifier->handle($event);
     }
 
