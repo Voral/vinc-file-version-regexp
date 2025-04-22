@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "886ef484adb157f09dd5da40cfa842d2",
+    "content-hash": "f112954b530560e5c40526fd89bc66b3",
     "packages": [
         {
             "name": "voral/version-increment",
-            "version": "dev-master",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Voral/vs-version-incrementor.git",
-                "reference": "2e31e0ea7e5769db33a073633d029ef67882c656"
+                "reference": "d4cea1a9d7e30e17290c1067da9c736052648382"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Voral/vs-version-incrementor/zipball/2e31e0ea7e5769db33a073633d029ef67882c656",
-                "reference": "2e31e0ea7e5769db33a073633d029ef67882c656",
+                "url": "https://api.github.com/repos/Voral/vs-version-incrementor/zipball/d4cea1a9d7e30e17290c1067da9c736052648382",
+                "reference": "d4cea1a9d7e30e17290c1067da9c736052648382",
                 "shasum": ""
             },
             "require": {
@@ -30,7 +30,6 @@
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpunit/phpunit": "^10.5"
             },
-            "default-branch": true,
             "bin": [
                 "bin/vs-version-increment"
             ],
@@ -53,17 +52,30 @@
             "description": "A tool for semantic versioning and changelog generation in Composer projects based on Git commits.",
             "homepage": "https://github.com/Voral/vs-version-incrementor",
             "keywords": [
+                "PHP Library",
+                "automated versioning",
+                "automation tool",
                 "changelog",
+                "changelog formatting",
+                "changelog generator",
+                "commit analysis",
                 "composer",
+                "conventional commits",
+                "dev tool",
                 "git",
+                "git integration",
+                "php tool",
+                "release management",
                 "semantic versioning",
-                "version increment"
+                "version control",
+                "version increment",
+                "version management"
             ],
             "support": {
                 "issues": "https://github.com/Voral/vs-version-incrementor/issues",
                 "source": "https://github.com/Voral/vs-version-incrementor"
             },
-            "time": "2025-04-22T05:48:07+00:00"
+            "time": "2025-04-22T14:48:26+00:00"
         }
     ],
     "packages-dev": [
@@ -4473,14 +4485,15 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "voral/version-increment": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=8.1"
     },
     "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.1"
+    },
     "plugin-api-version": "2.6.0"
 }
