@@ -44,8 +44,8 @@
     "phpstan/phpstan-phpunit": "^2.0"
   },
   "scripts": {
-    "vi:auto": "php ./bin/vs-version-increment",
-    "vi:debug": "php ./bin/vs-version-increment --debug",
+    "vi:auto": "php vendor/bin/vs-version-increment",
+    "vi:debug": "php vendor/bin/vs-version-increment --debug",
     "test": "php vendor/bin/phpunit --display-warnings",
     "coverage": "php -dzend_extension=xdebug.so -dxdebug.mode=coverage vendor/bin/phpunit --coverage-text",
     "stan": "vendor/bin/phpstan analyse src tests",
