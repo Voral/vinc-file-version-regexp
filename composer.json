@@ -1,6 +1,31 @@
 {
   "name": "voral/vinc-file-version-regexp",
   "type": "library",
+  "description": "An extension for voral/version-increment to update version strings in custom files using regular expressions.",
+  "keywords": [
+    "semantic versioning",
+    "version management",
+    "changelog generator",
+    "git integration",
+    "conventional commits",
+    "automated versioning",
+    "release management",
+    "ci/cd integration",
+    "php tool",
+    "version increment",
+    "commit analysis",
+    "changelog formatting",
+    "dev tool",
+    "php library",
+    "version control",
+    "automation tool",
+    "version-updater"
+  ],
+  "homepage": "https://github.com/Voral/vinc-file-version-regexp",
+  "support": {
+    "issues": "https://github.com/Voral/vinc-file-version-regexp/issues",
+    "source": "https://github.com/Voral/vinc-file-version-regexp"
+  },
   "require": {
     "voral/version-increment": "dev-master",
     "php": ">=8.1"
@@ -31,6 +56,15 @@
       "@stan"
     ]
   },
+  "scripts-descriptions": {
+    "vi:auto": "Run the version increment tool in automatic mode.",
+    "vi:debug": "Run the version increment tool in debug mode to preview changes without applying them.",
+    "test": "Run PHPUnit tests with warnings displayed.",
+    "coverage": "Generate code coverage report using Xdebug and PHPUnit.",
+    "stan": "Run PHPStan static analysis on the 'src' and 'tests' directories.",
+    "fixer": "Check coding standards using PHP-CS-Fixer (dry-run mode).",
+    "check": "Run all checks, including coding standards and static analysis."
+  },
   "authors": [
     {
       "name": "Alexander Vorobyev",
@@ -44,5 +78,12 @@
       "phpunit.xml",
       "/.github"
     ]
+  },
+  "config": {
+    "platform": {
+      "php": "8.1"
+    },
+    "optimize-autoloader": true,
+    "sort-packages": true
   }
 }
