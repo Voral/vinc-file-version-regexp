@@ -41,14 +41,17 @@ use Vasoft\VersionIncrement\Config;
 use Vasoft\VersionIncrement\Events\EventType;
 use Vasoft\VersionIncrement\Extension\RegexpFileModifier;
 
-return (new Config())
-    ->getEventBus()->addListener(
+$config = (new Config());
+$config->getEventBus()->addListener(
         EventType::BEFORE_VERSION_SET,
         new RegexpFileModifier(
             './src/version.php',
-            '#(\$version\s*=\s*"[^"]*)\d+\.\d+\.\d+([^"]*";)#s'
+            '#(\$version\s*=\s*\'|"v)\d+\.\d+\.\d+(\'|";)#s'
         )
     );
+
+
+return $config;
 ```
 
 ### Explanation:
