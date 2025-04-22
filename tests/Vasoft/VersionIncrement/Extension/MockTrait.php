@@ -83,6 +83,7 @@ trait MockTrait
         self::$mockIsWritableResult = $result;
         self::$mockIsWritableParam = '';
     }
+
     protected function clearFileExists(bool $result): void
     {
         self::$mockFileExistsCount = 0;
